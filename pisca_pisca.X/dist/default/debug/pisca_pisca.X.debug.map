@@ -1,0 +1,42 @@
+MPLINK 5.08, LINKER
+Linker Map File - Created Wed Aug 21 13:41:14 2024
+
+                                 Section Info
+                  Section       Type    Address   Location Size(Bytes)
+                ---------  ---------  ---------  ---------  ---------
+                 RES_VECT       code   0x000000    program   0x000022
+                   .cinit    romdata   0x000011    program   0x000004
+.config_2007_BUILD/DEFAULT/DEBUG/NEWPIC_8B_SI       code   0x002007    program   0x000002
+
+
+
+                              Program Memory Usage 
+                               Start         End      
+                           ---------   ---------      
+                            0x000000    0x000012      
+                            0x002007    0x002007      
+            20 out of 2182 program addresses used, program memory utilization is 0%
+
+
+
+                              Symbols - Sorted by Name
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+               DEC_TEMPO1   0x00000e    program     static /home/matheus/Documentos/Disciplinas/Micro/MPLab X projects/pisca_pisca.X/newpic_8b_simple.asm
+               DEC_TEMPO2   0x00000c    program     static /home/matheus/Documentos/Disciplinas/Micro/MPLab X projects/pisca_pisca.X/newpic_8b_simple.asm
+            ESPERAR_500MS   0x000008    program     static /home/matheus/Documentos/Disciplinas/Micro/MPLab X projects/pisca_pisca.X/newpic_8b_simple.asm
+        INICIALIZA_TEMPO2   0x00000a    program     static /home/matheus/Documentos/Disciplinas/Micro/MPLab X projects/pisca_pisca.X/newpic_8b_simple.asm
+           LACO_PRINCIPAL   0x000003    program     static /home/matheus/Documentos/Disciplinas/Micro/MPLab X projects/pisca_pisca.X/newpic_8b_simple.asm
+
+
+
+                              Symbols - Sorted by Address
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+           LACO_PRINCIPAL   0x000003    program     static /home/matheus/Documentos/Disciplinas/Micro/MPLab X projects/pisca_pisca.X/newpic_8b_simple.asm
+            ESPERAR_500MS   0x000008    program     static /home/matheus/Documentos/Disciplinas/Micro/MPLab X projects/pisca_pisca.X/newpic_8b_simple.asm
+        INICIALIZA_TEMPO2   0x00000a    program     static /home/matheus/Documentos/Disciplinas/Micro/MPLab X projects/pisca_pisca.X/newpic_8b_simple.asm
+               DEC_TEMPO2   0x00000c    program     static /home/matheus/Documentos/Disciplinas/Micro/MPLab X projects/pisca_pisca.X/newpic_8b_simple.asm
+               DEC_TEMPO1   0x00000e    program     static /home/matheus/Documentos/Disciplinas/Micro/MPLab X projects/pisca_pisca.X/newpic_8b_simple.asm
+
+

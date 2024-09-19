@@ -1,0 +1,431 @@
+MPASM 5.71  /HOME/MATHEUS/DOCUMENTOS/DISCIPL   8-27-2024  19:15:20         PAGE  1
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00001 ; TODO INSERT CONFIG CODE HERE USING CONFIG BITS GENERATOR
+                      00002 
+                      00003 ; PIC16F628A Configuration Bit Settings
+                      00004 
+                      00005 ; Assembly source line config statements
+                      00006 
+                      00007 #include "p16f628a.inc"
+                      00001         LIST
+                      00002 
+                      00003 ;==========================================================================
+                      00004 ; Build date : Nov 17 2016
+                      00005 ;  MPASM PIC16F628A processor include
+                      00006 ; 
+                      00007 ;  (c) Copyright 1999-2016 Microchip Technology, All rights reserved
+                      00008 ;==========================================================================
+                      00009 
+                      00386         LIST
+                      00008 
+                      00009 ; CONFIG
+                      00010 ; __config 0xFF70
+2007   3F70           00011  __CONFIG _FOSC_INTOSCIO & _WDTE_OFF & _PWRTE_ON & _MCLRE_ON & _BOREN_ON & _LVP_OFF & _CPD_OFF & _CP_OFF
+                      00012 
+                      00013  
+                      00014 #define BANK0   BCF STATUS,RP0
+                      00015 #define BANK1   BSF STATUS,RP0
+                      00016  
+Warning[205]: Found directive in column 1. (CBLOCK)
+                      00017 CBLOCK 0X20
+  00000020            00018     TEMPO1
+  00000021            00019     TEMPO2
+  00000022            00020     FLAG_PISCA
+Warning[205]: Found directive in column 1. (ENDC)
+                      00021 ENDC
+                      00022 
+                      00023 ; saídas
+                      00024 #define LAMPADA     PORTA,0
+                      00025 #define BOTAO_2HZ   PORTA,1
+                      00026 #define BOTAO_5HZ   PORTA,2
+                      00027 #define BOTAO_OFF   PORTA,3
+                      00028 
+                      00029 ; constantes
+                      00030 #define V_TEMPO    250
+                      00031     
+  000000FA            00032 FREQ_2HZ    equ .250
+  00000064            00033 FREQ_5HZ    equ .100
+                      00034 
+                      00035     
+                      00036 RES_VECT  CODE    0x0000            ; processor reset vector
+                      00037     
+0000   1683           00038     BANK1
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0001   1005           00039     BCF     TRISA,0
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+MPASM 5.71  /HOME/MATHEUS/DOCUMENTOS/DISCIPL   8-27-2024  19:15:20         PAGE  2
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+0002   1485           00040     BSF     TRISA,1
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0003   1505           00041     BSF     TRISA,2
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0004   1585           00042     BSF     TRISA,3
+0005   1283           00043     BANK0
+                      00044     
+0006   1005           00045     BCF     LAMPADA
+0007   01A2           00046     CLRF    FLAG_PISCA
+                      00047 
+0008                  00048 LACO_PRINCIPAL
+                      00049     
+0008   1005           00050     BCF     LAMPADA
+                      00051     
+0009   1C85           00052     BTFSS   BOTAO_2HZ
+000A   2???           00053     GOTO    PISCAR_2HZ
+                      00054     
+000B   1D05           00055     BTFSS   BOTAO_5HZ
+000C   2???           00056     GOTO    PISCAR_5HZ
+                      00057     
+000D   2???           00058     GOTO    LACO_PRINCIPAL
+                      00059 
+000E                  00060 PISCAR_2HZ
+                      00061     
+000E   1405           00062     BSF     LAMPADA
+000F   2???           00063     CALL    ESPERAR_250MS           ; 250000 us
+                      00064 
+0010   1005           00065     BCF     LAMPADA
+0011   2???           00066     CALL    ESPERAR_250MS           ; 250000 us
+                      00067     
+0012   2???           00068     GOTO    PISCAR_2HZ
+                      00069 
+0013                  00070 PISCAR_5HZ
+                      00071     
+0013   1405           00072     BSF     LAMPADA
+0014   2???           00073     CALL    ESPERAR_100MS           ; 100000 us
+                      00074     
+0015   1005           00075     BCF     LAMPADA
+0016   2???           00076     CALL    ESPERAR_100MS           ; 100000 us
+                      00077     
+0017   2???           00078     GOTO    PISCAR_5HZ
+                      00079 
+0018                  00080 ESPERAR_250MS
+                      00081     
+0018   30FA           00082     MOVLW   FREQ_2HZ                ; 1us
+0019   00A0           00083     MOVWF   TEMPO1                  ; 1us
+001A   2???           00084     GOTO    INICIALIZA_TEMPO2       ; 1us
+                      00085     
+001B                  00086 ESPERAR_100MS
+                      00087     
+001B   3064           00088     MOVLW   FREQ_5HZ                ; 1us
+001C   00A0           00089     MOVWF   TEMPO1                  ; 1us
+001D   2???           00090     GOTO    INICIALIZA_TEMPO2       ; 1us
+MPASM 5.71  /HOME/MATHEUS/DOCUMENTOS/DISCIPL   8-27-2024  19:15:20         PAGE  3
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00091     
+                      00092     
+001E                  00093 INICIALIZA_TEMPO2
+                      00094     
+Warning[202]: Argument out of range.  Least significant bits used.
+001E   3050           00095     MOVLW   V_TEMPO                 ; 1us
+001F   00A1           00096     MOVWF   TEMPO2                  ; 1us
+                      00097     
+0020   2???           00098     GOTO    DEC_TEMPO2
+                      00099     
+0021                  00100 DEC_TEMPO2
+                      00101     
+0021   1D85           00102     BTFSS   BOTAO_OFF
+0022   2???           00103     GOTO    LACO_PRINCIPAL          ; 1us
+                      00104     
+0023   0000           00105     NOP
+0024   0000           00106     NOP
+0025   0000           00107     NOP
+0026   0000           00108     NOP
+0027   0000           00109     NOP
+0028   0000           00110     NOP
+0029   0000           00111     NOP
+                      00112     
+002A   0BA1           00113     DECFSZ  TEMPO2,F                ; 2us
+002B   2???           00114     GOTO    DEC_TEMPO2              ; 2us
+                      00115     
+002C                  00116 DEC_TEMPO1
+                      00117     
+002C   0BA0           00118     DECFSZ  TEMPO1,F                ; 2us
+002D   2???           00119     GOTO    INICIALIZA_TEMPO2       ; 2us
+                      00120     
+002E   0008           00121     RETURN                          ; 2us
+                      00122     
+3F70                  00123     END
+MPASM 5.71  /HOME/MATHEUS/DOCUMENTOS/DISCIPL   8-27-2024  19:15:20         PAGE  4
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+ADDEN                             00000003
+ADEN                              00000003
+BANK0                             BCF STATUS,RP0
+BANK1                             BSF STATUS,RP0
+BOTAO_2HZ                         PORTA,1
+BOTAO_5HZ                         PORTA,2
+BOTAO_OFF                         PORTA,3
+BRGH                              00000002
+C                                 00000000
+C1INV                             00000004
+C1OUT                             00000006
+C2INV                             00000005
+C2OUT                             00000007
+CCP1CON                           00000017
+CCP1IE                            00000002
+CCP1IF                            00000002
+CCP1M0                            00000000
+CCP1M1                            00000001
+CCP1M2                            00000002
+CCP1M3                            00000003
+CCP1X                             00000005
+CCP1Y                             00000004
+CCPR1                             00000015
+CCPR1H                            00000016
+CCPR1L                            00000015
+CIS                               00000003
+CM0                               00000000
+CM1                               00000001
+CM2                               00000002
+CMCON                             0000001F
+CMIE                              00000006
+CMIF                              00000006
+CREN                              00000004
+CSRC                              00000007
+DATA_CP_OFF                       00003FFF
+DATA_CP_ON                        00003EFF
+DC                                00000001
+DEC_TEMPO1                        0000002C
+DEC_TEMPO2                        00000021
+EEADR                             0000009B
+EECON1                            0000009C
+EECON2                            0000009D
+EEDATA                            0000009A
+EEIE                              00000007
+EEIF                              00000007
+ESPERAR_100MS                     0000001B
+ESPERAR_250MS                     00000018
+F                                 00000001
+FERR                              00000002
+FLAG_PISCA                        00000022
+FREQ_2HZ                          000000FA
+FREQ_5HZ                          00000064
+FSR                               00000004
+MPASM 5.71  /HOME/MATHEUS/DOCUMENTOS/DISCIPL   8-27-2024  19:15:20         PAGE  5
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+GIE                               00000007
+INDF                              00000000
+INICIALIZA_TEMPO2                 0000001E
+INTCON                            0000000B
+INTE                              00000004
+INTEDG                            00000006
+INTF                              00000001
+IRP                               00000007
+LACO_PRINCIPAL                    00000008
+LAMPADA                           PORTA,0
+NOT_BO                            00000000
+NOT_BOD                           00000000
+NOT_BOR                           00000000
+NOT_PD                            00000003
+NOT_POR                           00000001
+NOT_RBPU                          00000007
+NOT_T1SYNC                        00000002
+NOT_TO                            00000004
+OERR                              00000001
+OPTION_REG                        00000081
+OSCF                              00000003
+PCL                               00000002
+PCLATH                            0000000A
+PCON                              0000008E
+PEIE                              00000006
+PIE1                              0000008C
+PIR1                              0000000C
+PISCAR_2HZ                        0000000E
+PISCAR_5HZ                        00000013
+PORTA                             00000005
+PORTB                             00000006
+PR2                               00000092
+PS0                               00000000
+PS1                               00000001
+PS2                               00000002
+PSA                               00000003
+RA0                               00000000
+RA1                               00000001
+RA2                               00000002
+RA3                               00000003
+RA4                               00000004
+RA5                               00000005
+RA6                               00000006
+RA7                               00000007
+RB0                               00000000
+RB1                               00000001
+RB2                               00000002
+RB3                               00000003
+RB4                               00000004
+RB5                               00000005
+RB6                               00000006
+RB7                               00000007
+RBIE                              00000003
+MPASM 5.71  /HOME/MATHEUS/DOCUMENTOS/DISCIPL   8-27-2024  19:15:20         PAGE  6
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+RBIF                              00000000
+RCIE                              00000005
+RCIF                              00000005
+RCREG                             0000001A
+RCSTA                             00000018
+RD                                00000000
+RP0                               00000005
+RP1                               00000006
+RX9                               00000006
+RX9D                              00000000
+SPBRG                             00000099
+SPEN                              00000007
+SREN                              00000005
+STATUS                            00000003
+SYNC                              00000004
+T0CS                              00000005
+T0IE                              00000005
+T0IF                              00000002
+T0SE                              00000004
+T1CKPS0                           00000004
+T1CKPS1                           00000005
+T1CON                             00000010
+T1OSCEN                           00000003
+T2CKPS0                           00000000
+T2CKPS1                           00000001
+T2CON                             00000012
+TEMPO1                            00000020
+TEMPO2                            00000021
+TMR0                              00000001
+TMR0IE                            00000005
+TMR0IF                            00000002
+TMR1                              0000000E
+TMR1CS                            00000001
+TMR1H                             0000000F
+TMR1IE                            00000000
+TMR1IF                            00000000
+TMR1L                             0000000E
+TMR1ON                            00000000
+TMR2                              00000011
+TMR2IE                            00000001
+TMR2IF                            00000001
+TMR2ON                            00000002
+TOUTPS0                           00000003
+TOUTPS1                           00000004
+TOUTPS2                           00000005
+TOUTPS3                           00000006
+TRISA                             00000085
+TRISA0                            00000000
+TRISA1                            00000001
+TRISA2                            00000002
+TRISA3                            00000003
+TRISA4                            00000004
+TRISA5                            00000005
+MPASM 5.71  /HOME/MATHEUS/DOCUMENTOS/DISCIPL   8-27-2024  19:15:20         PAGE  7
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+TRISA6                            00000006
+TRISA7                            00000007
+TRISB                             00000086
+TRISB0                            00000000
+TRISB1                            00000001
+TRISB2                            00000002
+TRISB3                            00000003
+TRISB4                            00000004
+TRISB5                            00000005
+TRISB6                            00000006
+TRISB7                            00000007
+TRMT                              00000001
+TX9                               00000006
+TX9D                              00000000
+TXEN                              00000005
+TXIE                              00000004
+TXIF                              00000004
+TXREG                             00000019
+TXSTA                             00000098
+VR0                               00000000
+VR1                               00000001
+VR2                               00000002
+VR3                               00000003
+VRCON                             0000009F
+VREN                              00000007
+VROE                              00000006
+VRR                               00000005
+V_TEMPO                           250
+W                                 00000000
+WR                                00000001
+WREN                              00000002
+WRERR                             00000003
+Z                                 00000002
+_BODEN_OFF                        00003FBF
+_BODEN_ON                         00003FFF
+_BOREN_OFF                        00003FBF
+_BOREN_ON                         00003FFF
+_CONFIG                           00002007
+_CPD_OFF                          00003FFF
+_CPD_ON                           00003EFF
+_CP_OFF                           00003FFF
+_CP_ON                            00001FFF
+_DEVID1                           00002006
+_ER_OSC_CLKOUT                    00003FFF
+_ER_OSC_NOCLKOUT                  00003FFE
+_EXTCLK_OSC                       00003FEF
+_FOSC_ECIO                        00003FEF
+_FOSC_EXTRCCLK                    00003FFF
+_FOSC_EXTRCIO                     00003FFE
+_FOSC_HS                          00003FEE
+_FOSC_INTOSCCLK                   00003FFD
+_FOSC_INTOSCIO                    00003FFC
+_FOSC_LP                          00003FEC
+MPASM 5.71  /HOME/MATHEUS/DOCUMENTOS/DISCIPL   8-27-2024  19:15:20         PAGE  8
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+_FOSC_XT                          00003FED
+_HS_OSC                           00003FEE
+_IDLOC0                           00002000
+_IDLOC1                           00002001
+_IDLOC2                           00002002
+_IDLOC3                           00002003
+_INTOSC_OSC_CLKOUT                00003FFD
+_INTOSC_OSC_NOCLKOUT              00003FFC
+_INTRC_OSC_CLKOUT                 00003FFD
+_INTRC_OSC_NOCLKOUT               00003FFC
+_LP_OSC                           00003FEC
+_LVP_OFF                          00003F7F
+_LVP_ON                           00003FFF
+_MCLRE_OFF                        00003FDF
+_MCLRE_ON                         00003FFF
+_PWRTE_OFF                        00003FFF
+_PWRTE_ON                         00003FF7
+_RC_OSC_CLKOUT                    00003FFF
+_RC_OSC_NOCLKOUT                  00003FFE
+_WDTE_OFF                         00003FFB
+_WDTE_ON                          00003FFF
+_WDT_OFF                          00003FFB
+_WDT_ON                           00003FFF
+_XT_OSC                           00003FED
+__16F628A                         00000001
+
+Errors   :     0
+Warnings :     3 reported,     0 suppressed
+Messages :     4 reported,     0 suppressed
+
+

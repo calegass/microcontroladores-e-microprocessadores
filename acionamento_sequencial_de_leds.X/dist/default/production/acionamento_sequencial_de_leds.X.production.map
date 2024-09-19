@@ -1,0 +1,50 @@
+MPLINK 5.08, LINKER
+Linker Map File - Created Mon Aug 12 22:26:16 2024
+
+                                 Section Info
+                  Section       Type    Address   Location Size(Bytes)
+                ---------  ---------  ---------  ---------  ---------
+                 RES_VECT       code   0x000000    program   0x00004c
+                   .cinit    romdata   0x000026    program   0x000004
+.config_2007_BUILD/DEFAULT/PRODUCTION/NEWPIC_       code   0x002007    program   0x000002
+
+
+
+                              Program Memory Usage 
+                               Start         End      
+                           ---------   ---------      
+                            0x000000    0x000027      
+                            0x002007    0x002007      
+            41 out of 2182 program addresses used, program memory utilization is 1%
+
+
+
+                              Symbols - Sorted by Name
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+             DESLIGAR_RB0   0x000016    program     static /home/matheus/Documentos/Disciplinas/Micro/MPLab X projects/acionamento_sequencial_de_leds.X/newpic_8b_simple.asm
+             DESLIGAR_RB1   0x00001a    program     static /home/matheus/Documentos/Disciplinas/Micro/MPLab X projects/acionamento_sequencial_de_leds.X/newpic_8b_simple.asm
+             DESLIGAR_RB2   0x00001e    program     static /home/matheus/Documentos/Disciplinas/Micro/MPLab X projects/acionamento_sequencial_de_leds.X/newpic_8b_simple.asm
+             DESLIGAR_RB3   0x000022    program     static /home/matheus/Documentos/Disciplinas/Micro/MPLab X projects/acionamento_sequencial_de_leds.X/newpic_8b_simple.asm
+                LIGAR_RB0   0x000006    program     static /home/matheus/Documentos/Disciplinas/Micro/MPLab X projects/acionamento_sequencial_de_leds.X/newpic_8b_simple.asm
+                LIGAR_RB1   0x00000a    program     static /home/matheus/Documentos/Disciplinas/Micro/MPLab X projects/acionamento_sequencial_de_leds.X/newpic_8b_simple.asm
+                LIGAR_RB2   0x00000e    program     static /home/matheus/Documentos/Disciplinas/Micro/MPLab X projects/acionamento_sequencial_de_leds.X/newpic_8b_simple.asm
+                LIGAR_RB3   0x000012    program     static /home/matheus/Documentos/Disciplinas/Micro/MPLab X projects/acionamento_sequencial_de_leds.X/newpic_8b_simple.asm
+                    START   0x000004    program     static /home/matheus/Documentos/Disciplinas/Micro/MPLab X projects/acionamento_sequencial_de_leds.X/newpic_8b_simple.asm
+
+
+
+                              Symbols - Sorted by Address
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                    START   0x000004    program     static /home/matheus/Documentos/Disciplinas/Micro/MPLab X projects/acionamento_sequencial_de_leds.X/newpic_8b_simple.asm
+                LIGAR_RB0   0x000006    program     static /home/matheus/Documentos/Disciplinas/Micro/MPLab X projects/acionamento_sequencial_de_leds.X/newpic_8b_simple.asm
+                LIGAR_RB1   0x00000a    program     static /home/matheus/Documentos/Disciplinas/Micro/MPLab X projects/acionamento_sequencial_de_leds.X/newpic_8b_simple.asm
+                LIGAR_RB2   0x00000e    program     static /home/matheus/Documentos/Disciplinas/Micro/MPLab X projects/acionamento_sequencial_de_leds.X/newpic_8b_simple.asm
+                LIGAR_RB3   0x000012    program     static /home/matheus/Documentos/Disciplinas/Micro/MPLab X projects/acionamento_sequencial_de_leds.X/newpic_8b_simple.asm
+             DESLIGAR_RB0   0x000016    program     static /home/matheus/Documentos/Disciplinas/Micro/MPLab X projects/acionamento_sequencial_de_leds.X/newpic_8b_simple.asm
+             DESLIGAR_RB1   0x00001a    program     static /home/matheus/Documentos/Disciplinas/Micro/MPLab X projects/acionamento_sequencial_de_leds.X/newpic_8b_simple.asm
+             DESLIGAR_RB2   0x00001e    program     static /home/matheus/Documentos/Disciplinas/Micro/MPLab X projects/acionamento_sequencial_de_leds.X/newpic_8b_simple.asm
+             DESLIGAR_RB3   0x000022    program     static /home/matheus/Documentos/Disciplinas/Micro/MPLab X projects/acionamento_sequencial_de_leds.X/newpic_8b_simple.asm
+
+

@@ -1,0 +1,56 @@
+MPLINK 5.08, LINKER
+Linker Map File - Created Tue Sep  3 02:05:37 2024
+
+                                 Section Info
+                  Section       Type    Address   Location Size(Bytes)
+                ---------  ---------  ---------  ---------  ---------
+                 RES_VECT       code   0x000000    program   0x000002
+                   .cinit    romdata   0x000001    program   0x000004
+                  INT_VEC       code   0x000004    program   0x0000ce
+.config_2007_BUILD/DEFAULT/PRODUCTION/NEWPIC_       code   0x002007    program   0x000002
+
+
+
+                              Program Memory Usage 
+                               Start         End      
+                           ---------   ---------      
+                            0x000000    0x000002      
+                            0x000004    0x00006a      
+                            0x002007    0x002007      
+            107 out of 2182 program addresses used, program memory utilization is 4%
+
+
+
+                              Symbols - Sorted by Name
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+           ACENDE_UNIDADE   0x00005d    program     static /home/matheus/Documentos/Disciplinas/Micro/MPLab X projects/contador_dezena.X/newpic_8b_simple.asm
+         ATUALIZA_DISPLAY   0x000055    program     static /home/matheus/Documentos/Disciplinas/Micro/MPLab X projects/contador_dezena.X/newpic_8b_simple.asm
+             BUSCA_CODIGO   0x000060    program     static /home/matheus/Documentos/Disciplinas/Micro/MPLab X projects/contador_dezena.X/newpic_8b_simple.asm
+            B_DECREMENTAR   0x00003d    program     static /home/matheus/Documentos/Disciplinas/Micro/MPLab X projects/contador_dezena.X/newpic_8b_simple.asm
+            B_INCREMENTAR   0x00002b    program     static /home/matheus/Documentos/Disciplinas/Micro/MPLab X projects/contador_dezena.X/newpic_8b_simple.asm
+         B_RESET_ACIONADO   0x000052    program     static /home/matheus/Documentos/Disciplinas/Micro/MPLab X projects/contador_dezena.X/newpic_8b_simple.asm
+          ESCREVE_DISPLAY   0x00005b    program     static /home/matheus/Documentos/Disciplinas/Micro/MPLab X projects/contador_dezena.X/newpic_8b_simple.asm
+           LACO_PRINCIPAL   0x00001d    program     static /home/matheus/Documentos/Disciplinas/Micro/MPLab X projects/contador_dezena.X/newpic_8b_simple.asm
+                   PADRAO   0x000026    program     static /home/matheus/Documentos/Disciplinas/Micro/MPLab X projects/contador_dezena.X/newpic_8b_simple.asm
+           SAI_ITERRUPCAO   0x00000e    program     static /home/matheus/Documentos/Disciplinas/Micro/MPLab X projects/contador_dezena.X/newpic_8b_simple.asm
+                    START   0x000012    program     static /home/matheus/Documentos/Disciplinas/Micro/MPLab X projects/contador_dezena.X/newpic_8b_simple.asm
+
+
+
+                              Symbols - Sorted by Address
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+           SAI_ITERRUPCAO   0x00000e    program     static /home/matheus/Documentos/Disciplinas/Micro/MPLab X projects/contador_dezena.X/newpic_8b_simple.asm
+                    START   0x000012    program     static /home/matheus/Documentos/Disciplinas/Micro/MPLab X projects/contador_dezena.X/newpic_8b_simple.asm
+           LACO_PRINCIPAL   0x00001d    program     static /home/matheus/Documentos/Disciplinas/Micro/MPLab X projects/contador_dezena.X/newpic_8b_simple.asm
+                   PADRAO   0x000026    program     static /home/matheus/Documentos/Disciplinas/Micro/MPLab X projects/contador_dezena.X/newpic_8b_simple.asm
+            B_INCREMENTAR   0x00002b    program     static /home/matheus/Documentos/Disciplinas/Micro/MPLab X projects/contador_dezena.X/newpic_8b_simple.asm
+            B_DECREMENTAR   0x00003d    program     static /home/matheus/Documentos/Disciplinas/Micro/MPLab X projects/contador_dezena.X/newpic_8b_simple.asm
+         B_RESET_ACIONADO   0x000052    program     static /home/matheus/Documentos/Disciplinas/Micro/MPLab X projects/contador_dezena.X/newpic_8b_simple.asm
+         ATUALIZA_DISPLAY   0x000055    program     static /home/matheus/Documentos/Disciplinas/Micro/MPLab X projects/contador_dezena.X/newpic_8b_simple.asm
+          ESCREVE_DISPLAY   0x00005b    program     static /home/matheus/Documentos/Disciplinas/Micro/MPLab X projects/contador_dezena.X/newpic_8b_simple.asm
+           ACENDE_UNIDADE   0x00005d    program     static /home/matheus/Documentos/Disciplinas/Micro/MPLab X projects/contador_dezena.X/newpic_8b_simple.asm
+             BUSCA_CODIGO   0x000060    program     static /home/matheus/Documentos/Disciplinas/Micro/MPLab X projects/contador_dezena.X/newpic_8b_simple.asm
+
+

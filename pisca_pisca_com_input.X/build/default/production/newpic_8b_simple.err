@@ -1,0 +1,7 @@
+Warning[205] /home/matheus/Documentos/Disciplinas/Micro/MPLab X projects/pisca_pisca_com_input.X/newpic_8b_simple.asm 17 : Found directive in column 1. (CBLOCK)
+Warning[205] /home/matheus/Documentos/Disciplinas/Micro/MPLab X projects/pisca_pisca_com_input.X/newpic_8b_simple.asm 21 : Found directive in column 1. (ENDC)
+Message[302] /home/matheus/Documentos/Disciplinas/Micro/MPLab X projects/pisca_pisca_com_input.X/newpic_8b_simple.asm 39 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] /home/matheus/Documentos/Disciplinas/Micro/MPLab X projects/pisca_pisca_com_input.X/newpic_8b_simple.asm 40 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] /home/matheus/Documentos/Disciplinas/Micro/MPLab X projects/pisca_pisca_com_input.X/newpic_8b_simple.asm 41 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] /home/matheus/Documentos/Disciplinas/Micro/MPLab X projects/pisca_pisca_com_input.X/newpic_8b_simple.asm 42 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Warning[202] /home/matheus/Documentos/Disciplinas/Micro/MPLab X projects/pisca_pisca_com_input.X/newpic_8b_simple.asm 95 : Argument out of range.  Least significant bits used.

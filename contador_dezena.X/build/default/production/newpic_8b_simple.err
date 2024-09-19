@@ -1,0 +1,3 @@
+Message[305] /home/matheus/Documentos/Disciplinas/Micro/MPLab X projects/contador_dezena.X/newpic_8b_simple.asm 61 : Using default destination of 1 (file).
+Message[302] /home/matheus/Documentos/Disciplinas/Micro/MPLab X projects/contador_dezena.X/newpic_8b_simple.asm 77 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] /home/matheus/Documentos/Disciplinas/Micro/MPLab X projects/contador_dezena.X/newpic_8b_simple.asm 85 : Register in operand not in bank 0.  Ensure that bank bits are correct.
