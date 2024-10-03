@@ -1,4 +1,0 @@
-Warning[207] /home/matheus/Documentos/Disciplinas/Micro/MPLab X projects/pwm_sort.X/newpic_8b_simple.asm 41 : Found label after column 1. (V_FILTRO)
-Message[302] /home/matheus/Documentos/Disciplinas/Micro/MPLab X projects/pwm_sort.X/newpic_8b_simple.asm 75 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] /home/matheus/Documentos/Disciplinas/Micro/MPLab X projects/pwm_sort.X/newpic_8b_simple.asm 76 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] /home/matheus/Documentos/Disciplinas/Micro/MPLab X projects/pwm_sort.X/newpic_8b_simple.asm 84 : Register in operand not in bank 0.  Ensure that bank bits are correct.
