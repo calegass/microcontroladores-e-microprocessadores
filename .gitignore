@@ -58,3 +58,8 @@
 /revisao_p1.X/build/
 /revisao_p1.X/dist/
 
+/ex7_leitura_entrada_analogica.X/nbproject/
+/ex7_leitura_entrada_analogica.X/build/
+/ex7_leitura_entrada_analogica.X/dist/
+
+.vscode/launch.json
