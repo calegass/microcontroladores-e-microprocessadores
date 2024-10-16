@@ -36,7 +36,6 @@
 #define	FIM_250MS	FLAGS,0
 #define	TROCA_DISPLAY	FLAGS,1
 #define EH_NEGATIVO	FLAGS,2
-#define	LENDO_TEMP	FLAGS,3
 
 ;entradas
 #define B_POT		PORTB,0
@@ -94,8 +93,8 @@ START
     MOVLW   B'11010010'
     MOVWF   OPTION_REG
     
-    MOVLW   B'01000100'	  
-    MOVWF   ADCON1	    
+    MOVLW   B'11000100'
+    MOVWF   ADCON1    
 
     BANK0
     
@@ -132,19 +131,6 @@ LACO_PRINCIPAL
     BTFSC   ADCON0,GO_DONE
     GOTO    $-1
     
-    BTFSS   LENDO_TEMP
-    MOVF    ADRESH,W
-    
-    BTFSC   LENDO_TEMP
-    CALL    FUNC_LER_TEMP
-    
-    MOVWF   X_L		    ;X_L = ADRESL/H
-    
-    GOTO    VERIFICA_MILHAR
-
-    
-FUNC_LER_TEMP  
-    
     MOVF    ADRESH,W	    ;W = ADRESH
     MOVWF   X_H		    ;ADC_H = ADRESH
     
@@ -152,8 +138,10 @@ FUNC_LER_TEMP
     MOVF    ADRESL,W	    ;ADC
     BANK0
     
-    RETURN
+    MOVWF   X_L		    ;X_L = ADRESL
     
+    GOTO    VERIFICA_MILHAR
+   
     
 LER_BOTOES
     
@@ -173,13 +161,6 @@ LER_BOTOES
 
     
 INICIA_LEITURA_POT
-    
-    BCF	    LENDO_TEMP
-    
-    BANK1
-    MOVLW   B'01000100'	
-    MOVWF   ADCON1
-    BANK0
 
     MOVLW   B'11001001'	
     MOVWF   ADCON0	
@@ -189,13 +170,6 @@ INICIA_LEITURA_POT
     
 INICIA_LEITURA_TEMP
     
-    BSF	    LENDO_TEMP
-    
-    BANK1
-    MOVLW   B'11001110'	
-    MOVWF   ADCON1
-    BANK0
-
     MOVLW   B'11000001'	  
     MOVWF   ADCON0	 
     
