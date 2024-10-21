@@ -1,73 +1,10 @@
 .vscode/
 
-ASM projects/acionamento_sequencial_de_leds.X/nbproject/
-ASM projects/acionamento_sequencial_de_leds.X/build/
-ASM projects/acionamento_sequencial_de_leds.X/dist/
+ASM projects/**/nbproject/
+ASM projects/**/build/
+ASM projects/**/dist/
 
-ASM projects/adc_10bits.X/nbproject/
-ASM projects/adc_10bits.X/build/
-ASM projects/adc_10bits.X/dist/
-
-ASM projects/contador_dezena.X/nbproject/
-ASM projects/contador_dezena.X/build/
-ASM projects/contador_dezena.X/dist/
-
-ASM projects/contador_progressivo_regressivo.X/nbproject/
-ASM projects/contador_progressivo_regressivo.X/build/
-ASM projects/contador_progressivo_regressivo.X/dist/
-
-ASM projects/contador.X/nbproject/
-ASM projects/contador.X/build/
-ASM projects/contador.X/dist/
-
-ASM projects/exemplo_conversor_ac.X/nbproject/
-ASM projects/exemplo_conversor_ac.X/build/
-ASM projects/exemplo_conversor_ac.X/dist/
-
-ASM projects/final_project/v1.X/nbproject/
-ASM projects/final_project/v1.X/build/
-ASM projects/final_project/v1.X/dist/
-
-ASM projects/led_swich.X/nbproject/
-ASM projects/led_swich.X/build/
-ASM projects/led_swich.X/dist/
-
-ASM projects/pisca_pisca_com_input.X/nbproject/
-ASM projects/pisca_pisca_com_input.X/build/
-ASM projects/pisca_pisca_com_input.X/dist/
-
-ASM projects/pisca_pisca_interruption.X/nbproject/
-ASM projects/pisca_pisca_interruption.X/build/
-ASM projects/pisca_pisca_interruption.X/dist/
-
-ASM projects/pisca_pisca.X/nbproject/
-ASM projects/pisca_pisca.X/build/
-ASM projects/pisca_pisca.X/dist/
-
-ASM projects/projeto8.X/nbproject/
-ASM projects/projeto8.X/build/
-ASM projects/projeto8.X/dist/
-
-ASM projects/prova_asm_1.X/nbproject/
-ASM projects/prova_asm_1.X/build/
-ASM projects/prova_asm_1.X/dist/
-
-ASM projects/pwm_sort.X/nbproject/
-ASM projects/pwm_sort.X/build/
-ASM projects/pwm_sort.X/dist/
-
-ASM projects/revisao_p1.X/nbproject/
-ASM projects/revisao_p1.X/build/
-ASM projects/revisao_p1.X/dist/
-
-ASM projects/ex7_leitura_entrada_analogica.X/nbproject/
-ASM projects/ex7_leitura_entrada_analogica.X/build/
-ASM projects/ex7_leitura_entrada_analogica.X/dist/
-
-ASM projects/prova2.X/nbproject/private/
-ASM projects/prova2.X/build/default/
-ASM projects/prova2.X/dist/default/
-
-C projects/ProjetoC1/*
-!C projects/ProjetoC1/main.c
-!C projects/ProjetoC1/main.h
+C projects/**/*
+!C projects/**/
+!C projects/**/main.c
+!C projects/**/main.h
