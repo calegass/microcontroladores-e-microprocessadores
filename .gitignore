@@ -6,5 +6,5 @@ ASM projects/**/dist/
 
 C projects/**/*
 !C projects/**/
-!C projects/**/main.c
-!C projects/**/main.h
+!C projects/**/*.c
+!C projects/**/*.h
